@@ -3,109 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BLOODLINE RUST — Official community website.">
-  <title>BLOODLINE RUST </title>
+  <title>BLOODLINE | Rust Webstore</title>
+  <meta name="description" content="Official BLOODLINE Rust webstore.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="nav">
-    <a class="brand" href="#home"><span>BL</span> BLOODLINE</a>
+    <a class="brand" href="#home"><span>🩸</span> BLOODLINE</a>
     <nav>
-      <a href="#features">Features</a>
-      <a href="#rules">Rules</a>
-      <a href="#community">Community</a>
+      <a href="#home">Home</a>
+      <a href="#store">Store</a>
+      <a href="#servers">Servers</a>
+      <a href="#discord">Discord</a>
     </nav>
-    <a class="nav-btn" href="https://discord.gg/uJvjg8PWAp" target="_blank">Join Discord</a>
   </header>
-
-  <main id="home">
-    <section class="hero">
+  <main>
+    <section id="home" class="hero">
       <div class="hero-content">
-        <p class="eyebrow">RUST • COMMUNITY</p>
+        <p class="eyebrow">OFFICIAL RUST COMMUNITY</p>
         <h1>WELCOME TO <span>BLOODLINE</span></h1>
-        <p class="subtitle">A competitive Rust experience built for players who want fast progression, active PvP, and a strong community. Founded June 10 2026 </p>
+        <p class="subtitle">Gear up. Build up. Fight for your bloodline.</p>
         <div class="buttons">
-          <a class="primary" href="https://discord.gg/uJvjg8PWAp" target="_blank">JOIN THE DISCORD</a>
-          <a class="secondary" href="#features">VIEW SERVER</a>
-        </div>
-        <div class="servers">
-          <div class="server-card">
-            <div>
-              <small>RUST SERVER</small>
-              <strong>BLOODLINE RUST 2x</strong>
-              <code id="ip2x">135.148.15.176:20002</code>
-            </div>
-            <div class="server-actions">
-              <button onclick="copyIP('ip2x', this)">COPY IP</button>
-              <a href="steam://connect/135.148.15.176:20002">CONNECT</a>
-            </div>
-          </div>
-
-          <div class="server-card">
-            <div>
-              <small>RUST SERVER</small>
-              <strong>BLOODLINE RUST 3x</strong>
-              <code id="ip3x">135.148.172.229:28560</code>
-            </div>
-            <div class="server-actions">
-              <button onclick="copyIP('ip3x', this)">COPY IP</button>
-              <a href="steam://connect/135.148.172.229:28560">CONNECT</a>
-            </div>
-          </div>
+          <a class="btn primary" href="#store">View Store</a>
+          <a class="btn secondary" href="#servers">Join Server</a>
         </div>
       </div>
-      <div class="blood-drop">BL</div>
     </section>
-
-    <section id="features" class="section">
-      <p class="eyebrow">WHY BLOODLINE</p>
-      <h2>BUILT FOR RUST PLAYERS</h2>
-      <div class="grid">
-        <article><b>KITS</b><p>Purchase VIP to get some kits to help your Wipe and support us.</p></article>
-        <article><b>FASTER SMELT</b><p>Spend less time waiting for furnaces and more time in the action.</p></article>
-        <article><b>TIER 1 BPs</b><p>Start with all Tier 1 blueprints unlocked and get into the wipe faster.</p></article>
-        <article><b>ACTIVE COMMUNITY</b><p>Meet players, find teammates, and stay connected through Discord.</p></article>
+    <section id="store" class="section">
+      <div class="section-title">
+        <p class="eyebrow">SUPPORT THE SERVER</p>
+        <h2>STORE</h2>
+        <p>Choose a package below and connect each button to your Tebex checkout link.</p>
+      </div>
+      <div class="store-grid">
+        <article class="card featured">
+          <div class="tag">POPULAR</div>
+          <h3>VIP</h3>
+          <div class="price">$9.99 <small>/ month</small></div>
+          <ul>
+            <li>VIP server rank</li><li>Exclusive Discord role</li><li>VIP perks</li><li>Priority support</li>
+          </ul>
+          <a class="btn primary full" href="https://YOUR-TEBEX-LINK-HERE" target="_blank" rel="noopener">Purchase</a>
+        </article>
+        <article class="card">
+          <h3>ELITE</h3>
+          <div class="price">$19.99 <small>/ month</small></div>
+          <ul>
+            <li>Elite server rank</li><li>Exclusive Discord role</li><li>Extra server perks</li><li>Priority support</li>
+          </ul>
+          <a class="btn primary full" href="https://YOUR-TEBEX-LINK-HERE" target="_blank" rel="noopener">Purchase</a>
+        </article>
+        <article class="card">
+          <h3>LEGEND</h3>
+          <div class="price">$29.99 <small>/ month</small></div>
+          <ul>
+            <li>Legend server rank</li><li>Exclusive Discord role</li><li>Premium perks</li><li>Priority support</li>
+          </ul>
+          <a class="btn primary full" href="https://YOUR-TEBEX-LINK-HERE" target="_blank" rel="noopener">Purchase</a>
+        </article>
+      </div>
+      <p class="notice">Replace the three <strong>YOUR-TEBEX-LINK-HERE</strong> links with your actual Tebex checkout URLs.</p>
+    </section>
+    <section id="servers" class="section dark">
+      <div class="section-title">
+        <p class="eyebrow">PLAY BLOODLINE</p>
+        <h2>SERVERS</h2>
+      </div>
+      <div class="server-grid">
+        <div class="server">
+          <div><span class="status"></span><strong>BLOODLINE Rust 2x</strong><p>135.148.15.176:20002</p></div>
+          <button class="copy-btn" data-ip="135.148.15.176:20002">Copy IP</button>
+        </div>
+        <div class="server">
+          <div><span class="status"></span><strong>BLOODLINE Rust 3x</strong><p>135.148.172.229:28560</p></div>
+          <button class="copy-btn" data-ip="135.148.172.229:28560">Copy IP</button>
+        </div>
       </div>
     </section>
-
-    <section id="rules" class="section dark">
-      <p class="eyebrow">SERVER RULES</p>
-      <h2>PLAY FAIR. PLAY HARD.</h2>
-      <div class="rules">
-        <div><span>01</span><p>No cheating, scripting, or exploiting.</p></div>
-        <div><span>02</span><p>No harassment, threats, or hate speech.</p></div>
-        <div><span>03</span><p>Do not abuse bugs or intentionally crash/lag the server.</p></div>
-        <div><span>04</span><p>Follow staff instructions and Discord rules.</p></div>
+    <section id="discord" class="section discord-section">
+      <div class="discord-box">
+        <p class="eyebrow">JOIN THE COMMUNITY</p>
+        <h2>JOIN OUR DISCORD</h2>
+        <p>Get server news, updates, support, giveaways and more.</p>
+        <a class="btn primary" href="https://discord.gg/uJvjg8PWAp" target="_blank" rel="noopener">Join Discord</a>
       </div>
-    </section>
-
-    <section id="community" class="cta">
-      <p class="eyebrow">READY TO WIPE?</p>
-      <h2>JOIN THE BLOODLINE</h2>
-      <p>Grab your team, join the Discord, and get ready for the next wipe.</p>
-      <a class="primary" href="https://discord.gg/uJvjg8PWAp" target="_blank">JOIN DISCORD</a>
     </section>
   </main>
-
   <footer>
-    <strong>BLOODLINE</strong>
-    <span>Rust Community</span>
-    <p class="copyright">
-  © <span id="year"></span> BLOODLINE. All Rights Reserved.
-</p>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    <div class="brand">🩸 BLOODLINE</div>
+    <p>© <span id="year"></span> BLOODLINE. All rights reserved.</p>
+    <p class="small">BLOODLINE is an independent Rust community and is not affiliated with Facepunch Studios.</p>
   </footer>
-
-  <script>
-    function copyIP(id, btn) {
-      const ip = document.getElementById(id).textContent.trim();
-      navigator.clipboard.writeText(ip);
-      btn.textContent = "COPIED!";
-      setTimeout(() => btn.textContent = "COPY IP", 1500);
-    }
-  </script>
+  <div id="toast" class="toast">IP copied!</div>
+  <script src="script.js"></script>
 </body>
 </html>
