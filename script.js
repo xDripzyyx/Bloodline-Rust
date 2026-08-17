@@ -11,7 +11,7 @@ document.querySelectorAll(".connect").forEach(btn=>btn.addEventListener("click",
   location.href="steam://connect/"+btn.dataset.ip;
 }));
 document.querySelectorAll('a[href="https://discord.gg/"]').forEach(a=>a.href=CONFIG.discord);
-function toast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),1800)}
+function toast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),1400)}
 function getFirstThursday(year,month){
   const d=new Date(year,month,1,14,0,0);
   d.setDate(1+((4-d.getDay()+7)%7));
