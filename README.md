@@ -1,9 +1,16 @@
-# Bloodline Rust — upgraded GitHub Pages site
+# Bloodline Rust — Cinematic Edition
 
-Replace the Discord and store URLs plus `wipeDate` in `script.js`.
+Upload the contents of this folder to the same web root currently serving bloodlinerust.net.
 
-Server IPs are already set from your live site:
-- 2x: 135.148.15.176:20002
-- 3x: 135.148.172.229:28560
+## Included
+- Cinematic responsive landing page
+- Local SVG visual assets
+- Official Rust trailer embed (YouTube)
+- Server copy/connect buttons
+- Discord + Tebex links
+- Wipe countdown
+- Scroll reveal animations
+- Mobile navigation
 
-Upload `index.html`, `style.css`, and `script.js` to the GitHub Pages repository.
+## Before uploading
+Edit `script.js` and change `WIPE_DATE` to the actual next wipe date/time.

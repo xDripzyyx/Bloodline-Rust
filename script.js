@@ -1,50 +1,9 @@
-const CONFIG={
-  discord:"https://discord.gg/uJvjg8PWAp",
-  store:"https://bloodlinerust.tebex.store",
-  wipeDate:"2026-08-20T18:00:00",
-  ips:["135.148.15.176:20002","135.148.172.229:28560"]
-};
-
-const toastEl=document.getElementById("toast");
-function toast(message){toastEl.textContent=message;toastEl.classList.add("show");clearTimeout(window.__toast);window.__toast=setTimeout(()=>toastEl.classList.remove("show"),1800)}
-
-// Keep every placeholder Discord/store link in sync with CONFIG.
-document.querySelectorAll('a[href="https://discord.gg/"]').forEach(a=>a.href=CONFIG.discord);
-document.querySelectorAll('a[href*="bloodlinerust.tebex.store"]').forEach(a=>a.href=CONFIG.store);
-
-// Copy server IPs.
-document.querySelectorAll("[data-ip]").forEach(btn=>btn.addEventListener("click",async()=>{
-  const ip=btn.dataset.ip;
-  try{await navigator.clipboard.writeText(ip);toast("COPIED "+ip)}catch{toast("IP: "+ip)}
-}));
-
-// Launch Rust's Steam connect protocol.
-document.querySelectorAll(".connect").forEach(btn=>btn.addEventListener("click",()=>{window.location.href="steam://connect/"+btn.dataset.ip}));
-
-function tick(){
-  const distance=new Date(CONFIG.wipeDate).getTime()-Date.now();
-  const d=Math.max(0,distance);
-  const days=Math.floor(d/864e5),hours=Math.floor(d/36e5)%24,mins=Math.floor(d/6e4)%60,secs=Math.floor(d/1e3)%60;
-  document.getElementById("d").textContent=String(days).padStart(2,"0");
-  document.getElementById("h").textContent=String(hours).padStart(2,"0");
-  document.getElementById("m").textContent=String(mins).padStart(2,"0");
-  document.getElementById("s").textContent=String(secs).padStart(2,"0");
-  document.getElementById("wipeText").textContent=distance>0?"Next wipe: "+new Date(CONFIG.wipeDate).toLocaleString():"WIPE IS LIVE — GOOD LUCK";
-}
-tick();setInterval(tick,1000);
-
-// Smooth reveal animations as sections enter the viewport.
-const revealTargets=document.querySelectorAll(".section,.wipe,.final,.server-card,.feature-grid>div,.rule-grid>div,.faq-list");
-revealTargets.forEach(el=>el.classList.add("reveal"));
-if("IntersectionObserver" in window){
- const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.08});
- revealTargets.forEach(el=>observer.observe(el));
-}else revealTargets.forEach(el=>el.classList.add("visible"));
-
-// Subtle cursor glow on desktop.
-if(window.matchMedia("(pointer:fine)").matches){
- const glow=document.createElement("div");
- glow.style.cssText="position:fixed;width:280px;height:280px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(229,27,35,.07),transparent 65%);transform:translate(-50%,-50%);transition:left .12s,top .12s";
- document.body.appendChild(glow);
- window.addEventListener("mousemove",e=>{glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px"});
-}
+const WIPE_DATE = '2026-09-03T20:00:00-04:00';
+const toast = document.getElementById('toast');
+function showToast(t){toast.textContent=t;toast.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>toast.classList.remove('show'),1800)}
+document.querySelectorAll('.copy').forEach(btn=>btn.addEventListener('click',async()=>{const ip=btn.dataset.ip;try{await navigator.clipboard.writeText(ip);showToast('SERVER IP COPIED');}catch{showToast(ip)}}));
+document.querySelectorAll('.connect').forEach(btn=>btn.addEventListener('click',()=>{const ip=btn.dataset.ip;window.location.href=`steam://connect/${ip}`}));
+function updateCountdown(){const end=new Date(WIPE_DATE).getTime(),now=Date.now(),diff=Math.max(0,end-now);const d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);document.getElementById('d').textContent=String(d).padStart(2,'0');document.getElementById('h').textContent=String(h).padStart(2,'0');document.getElementById('m').textContent=String(m).padStart(2,'0');document.getElementById('s').textContent=String(s).padStart(2,'0');document.getElementById('wipeText').textContent=diff?'Next wipe: '+new Date(WIPE_DATE).toLocaleString([], {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'THE WIPE IS LIVE';}updateCountdown();setInterval(updateCountdown,1000);
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const glow=document.querySelector('.cursor-glow');window.addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+document.querySelector('.menu')?.addEventListener('click',()=>{const nav=document.querySelector('nav');nav.style.display=nav.style.display==='flex'?'none':'flex';nav.style.position='absolute';nav.style.top='84px';nav.style.left='0';nav.style.right='0';nav.style.padding='25px';nav.style.background='#090909';nav.style.flexDirection='column'});
