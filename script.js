@@ -1,6 +1,6 @@
 const CONFIG={
   discord:"https://discord.gg/uJvjg8PWAp",
-  store:"https://bloodlinerust.tebex.store",
+  store:"https://bloodline-rust.paynow.store/",
   wipeTime:"14:00:00",
   ips:["135.148.15.176:20002","135.148.172.229:28560"]
 };
